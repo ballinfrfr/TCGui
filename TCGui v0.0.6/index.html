@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>TCGui</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="side">
+    <label for="fileInput" class="custom-file-upload">
+      <img src="file.png" alt="Upload File">
+    </label>
+    <input type="file" id="fileInput">
+    <img src="save.png" alt="Save File" id="saveButton"> <!-- Save Button -->
+  </div>
+  <textarea class="file-content" id="fileContent"></textarea>
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const fileContent = document.getElementById('fileContent');
+    const saveButton = document.getElementById('saveButton');
+
+    fileInput.addEventListener('change', function() {
+      const file = fileInput.files[0];
+      document.title = file ? file.name : 'TCGui';
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        fileContent.value = event.target.result;
+      };
+      reader.readAsText(file);
+    });
+
+    saveButton.addEventListener('click', function() {
+      const content = fileContent.value;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'saved_file.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(88, 88, 88);
+    margin: 0 50px; /* Adjust margin to create space for the side element */
+    color: beige;
+  }
+
+  #fileInput {
+    display: none; /* Hide the original file input */
+  }
+
+  .custom-file-upload {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .custom-file-upload img {
+    width: 40px; /* Adjust image width as needed */
+    height: 40px; /* Adjust image height as needed */
+    user-select: none; /* Prevent image selection */
+  }
+
+  .side {
+    background-color: rgb(61, 61, 61);
+    position: fixed; /* Fix the position of the side */
+    left: 0; /* Place the side all the way to the left */
+    top: 0; /* Align the side with the top of the viewport */
+    bottom: 0; /* Extend the side to the bottom of the viewport */
+    width: 50px; /* Adjust the width of the side as needed */
+    border: 1px solid rgb(143, 143, 143); /* Add a border to the side */
+  }
+
+  .file-content {
+    margin-left: 60px; /* Adjust margin to push text slightly to the right */
+    background-color: rgb(66, 66, 66);
+    color: beige;
+    width: 1200px;
+    height: 500px;
+  }
+
+  img {
+    cursor: pointer;
+    padding-bottom: 30px;
+    width: 40px;
+    height: 40px;
+  }
